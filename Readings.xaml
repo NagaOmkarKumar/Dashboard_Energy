@@ -1,0 +1,75 @@
+﻿<Window x:Class="JBM_OGIHARA.Readings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JBM_OGIHARA"
+        mc:Ignorable="d"
+        Title="Readings" Height="450" Width="800">
+    <Grid Background="LightGray">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="90*"/>
+            <RowDefinition Height="560*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Column="0" VerticalAlignment="Center">
+            <ComboBox Margin="10,10,10,10" Name="Machinebox">
+                <ComboBoxItem Content="Meter1"/>
+                <ComboBoxItem Content="Meter2"/>
+                <ComboBoxItem Content="Meter3"/>
+                <ComboBoxItem Content="Meter4"/>
+                <ComboBoxItem Content="Meter5"/>
+                <ComboBoxItem Content="Meter6"/>
+            </ComboBox>
+        </Grid>
+
+        <Grid Grid.Column="1">
+            <DatePicker x:Name="Date0" Margin="20,10,20,10" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <DatePicker x:Name="Date2" Margin="20,10,20,10" VerticalAlignment="Center"/>
+        </Grid>
+
+        <Grid Grid.Column="4" Height="50">
+            <Grid.Resources>
+
+                <Style x:Key="button_font" TargetType="Button">
+                    <Setter Property="FontFamily" Value="Segoe"/>
+                    <Setter Property="FontSize" Value="14"/>
+                    <Setter Property="Foreground" Value="white"/>
+                    <Setter Property="Height" Value="30"/>
+                </Style>
+
+                <ControlTemplate x:Key="button" TargetType="Button">
+
+                    <Grid>
+                        <Border x:Name="bor" Background="CadetBlue"  CornerRadius="8"></Border>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
+                    </Grid>
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" TargetName="bor" Value="skyblue"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+
+            </Grid.Resources>
+            <Button VerticalAlignment="Center" Template="{StaticResource button}" />
+
+            <Button Content="GENERATE REPORT" Height="25" HorizontalAlignment="Left" Background="SkyBlue" Click="Button_Click"/>
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.ColumnSpan="5">
+        </Grid>
+    </Grid>
+</Window>
